@@ -1,3 +1,6 @@
+import json
+
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponse
 from .models import Choice, Question
@@ -38,5 +41,22 @@ def vote(request, question_id):
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
+
 def test(request):
-    return HttpResponse("test")
+    list = ['view', 'Json', 'JS']
+    return render(request, 'polls/test.html', {
+        'List': json.dumps(list),
+    })
+
+
+def add(request):
+    a = request.GET['a']
+    b = request.GET['b']
+    a_value = int(a)
+    b_value = int(b)
+    return HttpResponse(str(a_value + b_value))
+
+
+def ajax_dict(request):
+    name_dict = {'twz': 'Love python and Django', 'zqxt': 'I am teaching Django'}
+    return JsonResponse(name_dict)

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<p>test</p>
+user: <input type="text" id="user">
+pwd: <input type="text" id="pwd"><br>
+<input type="button" onclick="test()" value="test">
+<p>请输入两个数字</p>
+<form action="/polls/add/" method="get">
+    a: <input type="text" id="a"> <br>
+    b: <input type="text" id="b"> <br>
+    <p>result: <span id='result'></span></p>
+    <button type="button" id='sum' onclick="sum_test()">提交</button>
+</form>
+<script src="../../static/polls/js/test.js"></script>
+<script>
+    var list_test = {{List|safe}};
+    console.log(list_test);
+</script>
+</body>
+</html>

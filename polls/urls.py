@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path
 
 from . import views
 
@@ -12,5 +12,8 @@ urlpatterns = [
     path('<int:question_id>/results/', views.results, name='results'),
     # ex: /polls/5/vote/
     path('<int:question_id>/vote/', views.vote, name='vote'),
-    path('test', views.test, name='test')
+    path('test', views.test, name='test'),
+    path('add/', views.add, name='add'),
+    path('ajax_dict/', views.ajax_dict, name='ajax_dict')
+    # re_path(r'^add/$', views.add, name='add')
 ]
